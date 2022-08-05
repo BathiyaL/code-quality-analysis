@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="UnitTest-Regression" guice-stage="DEVELOPMENT">
+  <test name="CoffeeMakerTest">
+    <classes>
+      <class name="com.moduleA.coffeemaker.CoffeeMakerTest">
+      </class> 
+    </classes>
+  </test> 
+</suite>
