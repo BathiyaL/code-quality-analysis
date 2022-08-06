@@ -5,6 +5,8 @@ public class SimpleObject {
 	private String name;
 	private float netSalary;
 	private float basicSalary;
+	private String jobType;
+	private String paymentMethod;
 
 	public String getName() {
 		return name;
@@ -18,7 +20,7 @@ public class SimpleObject {
 		return netSalary;
 	}
 
-	public void setNetSalary(int netSalary) {
+	public void setNetSalary(float netSalary) {
 		this.netSalary = netSalary;
 	}
 
@@ -26,8 +28,24 @@ public class SimpleObject {
 		return basicSalary;
 	}
 
-	public void setBasicSalary(int basicSalary) {
+	public void setBasicSalary(float basicSalary) {
 		this.netSalary = basicSalary;
+	}
+
+	public String getPaymentMethod() {
+		return paymentMethod;
+	}
+
+	public void setPaymentMethod(String paymentMethod) {
+		this.paymentMethod = paymentMethod;
+	}
+	
+	public String getJobType() {
+		return jobType;
+	}
+
+	public void setJobType(String jobType) {
+		this.paymentMethod = jobType;
 	}
 
 }
