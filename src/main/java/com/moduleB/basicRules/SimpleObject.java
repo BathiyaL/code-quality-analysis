@@ -2,9 +2,9 @@ package com.moduleB.basicRules;
 
 public class SimpleObject {
 
-	String name;
-	int netSalary;
-	int basicSalary;
+	private String name;
+	private float netSalary;
+	private float basicSalary;
 
 	public String getName() {
 		return name;
@@ -14,7 +14,7 @@ public class SimpleObject {
 		this.name = name;
 	}
 
-	public int getNetSalary() {
+	public float getNetSalary() {
 		return netSalary;
 	}
 
@@ -22,7 +22,7 @@ public class SimpleObject {
 		this.netSalary = netSalary;
 	}
 
-	public int getBasicSalary() {
+	public float getBasicSalary() {
 		return basicSalary;
 	}
 
