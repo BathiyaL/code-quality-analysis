@@ -29,7 +29,7 @@ public class EmployeeFunctions7 {
 			try {
 				stream.close();
 			} catch (IOException e) {
-				e.printStackTrace();
+				logger.error("IOException");
 			}
 		}
 	}
