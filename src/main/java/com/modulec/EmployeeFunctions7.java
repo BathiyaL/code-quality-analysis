@@ -28,7 +28,7 @@ public class EmployeeFunctions7 {
 		Path path = Paths.get(this.fileName);
 		try {
 			stream.write(5);
-			Files.lines(path).forEach(System.out::println);
+			Files.lines(path).forEach(logger::info);
 		} catch (Exception e) {
 			logger.error("Exception in stream");
 		}
