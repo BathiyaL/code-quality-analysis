@@ -24,7 +24,7 @@ public class EmployeeFunctions {
 	private void readTheEmployeeLog() throws IOException {
 		Path path = Paths.get(this.fileName);
 		BufferedReader reader = Files.newBufferedReader(path);
-		reader.read();
+		logger.info(reader.read());
 		
 		try {
 			Stream<String> input = Files.lines(path);
