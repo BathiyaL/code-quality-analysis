@@ -28,6 +28,12 @@ public class EmployeeFunctions {
 		this.fileName = fileName;
 	}
 
+	private boolean isFileUndefined() {
+		if(this.fileName == "UNDEFINED") {
+			return true;
+		}
+		return false;
+	}
 	public void doSomething2() throws IOException {
 
 		String filePath = "myfile.txt";
