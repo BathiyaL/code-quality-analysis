@@ -14,12 +14,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
-public class EmployeeFunctions2 {
+public class EmployeeFunctions3 {
 	
-	Logger logger = LogManager.getLogger(EmployeeFunctions2.class);
+	Logger logger = LogManager.getLogger(EmployeeFunctions3.class);
 	
 	String fileName;
-	EmployeeFunctions2(String fileName){
+	EmployeeFunctions3(String fileName){
 		this.fileName = fileName;
 	}
 	
@@ -32,9 +32,7 @@ public class EmployeeFunctions2 {
 		      logger.info(property);
 		    }
 		  } catch (Exception e) {
-		    // ...
-		  } finally {
-		    stream.close();
+		      logger.info(e);
 		  }
 	}
 	
