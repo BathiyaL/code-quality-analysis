@@ -84,14 +84,14 @@ public class EmployeeFunctions7 {
 	}
 	
 	protected void pack() throws FileNotFoundException {
-		OutputStream zOut = null;
-		OutputStream stream = new FileOutputStream("myfile.txt");
+		OutputStream zOut = null;		
         try {
             BufferedOutputStream bos =
                 new BufferedOutputStream(Files.newOutputStream(Paths.get(this.fileName)));
             bos.write('B');
             bos.write('Z');
-            zOut = new FileOutputStream("xyz.txxt");            
+            zOut = new FileOutputStream("xyz.txxt");   	
+            zOut.write(2);
         } catch (IOException ioe) {
             String msg = "Problem creating bzip2 " + ioe.getMessage();
             logger.warn(msg);
