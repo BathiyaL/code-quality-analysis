@@ -1,6 +1,8 @@
 package com.modulec;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -24,15 +26,11 @@ public class EmployeeFunctions7 {
 	}
 
 	public void doSomething2() throws IOException {
-		OutputStream stream = new FileOutputStream("myfile.txt");
-		Path path = Paths.get(this.fileName);
-		try {
-			stream.write(5);
-			Files.lines(path).forEach(logger::info);
-		} catch (Exception e) {
-			logger.error("Exception in stream");
-		}
-
+		
+		String filePath = "myfile.txt";
+		File file = new File(filePath);
+	    FileInputStream fis = new FileInputStream(file);
+	    fis.read();
 	}
 
 	private void readTheEmployeeLog() {
