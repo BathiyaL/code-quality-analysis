@@ -34,6 +34,14 @@ public class EmployeeFunctions {
 		}
 		return false;
 	}
+	
+	private boolean isFileVerified() {
+		if(this.fileName.equals("Verified")) {
+			return true;
+		}
+		return false;
+	}
+	
 	public void doSomething2() throws IOException {
 
 		String filePath = "myfile.txt";
