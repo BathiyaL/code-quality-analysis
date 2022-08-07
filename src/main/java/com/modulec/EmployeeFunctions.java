@@ -2,7 +2,9 @@ package com.modulec;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -44,5 +46,20 @@ public class EmployeeFunctions {
 	
 	public void processEmployeeLogData(){
 		readTheEmployeeLog();
+	}
+	
+	public void doSomething() throws IOException {
+		  OutputStream stream = null;
+		  String[] propertyList = {"code", "code5"};
+		  try {
+		    for (String property : propertyList) {
+		      stream = new FileOutputStream("myfile.txt");
+		      // ...
+		    }
+		  } catch (Exception e) {
+		    // ...
+		  } finally {
+		    stream.close();
+		  }
 	}
 }
