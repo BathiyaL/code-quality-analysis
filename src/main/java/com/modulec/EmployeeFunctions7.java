@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -97,4 +98,23 @@ public class EmployeeFunctions7 {
             logger.warn(msg);
         }
     }
+	
+	public void execute(String message) throws FileNotFoundException {
+       
+        OutputStream out = new FileOutputStream("AAA.txxt");
+        PrintStream ps = new PrintStream(out);
+        switch (message) {
+        case "A":
+            logger.info("A");
+            ps.close();
+            break;
+        case "B":
+        	 logger.info("A");
+            break;
+        case "C":
+        	 logger.info("A");
+            break;
+        }
+    }
+
 }
