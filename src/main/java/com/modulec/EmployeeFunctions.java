@@ -1,4 +1,4 @@
-package com.ModuleC;
+package com.modulec;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -24,7 +24,7 @@ public class EmployeeFunctions {
 	private void readTheEmployeeLog() throws IOException {
 		Path path = Paths.get(this.fileName);
 		BufferedReader reader = Files.newBufferedReader(path);
-		reader.close();
+		reader.read();
 		
 		try {
 			Stream<String> input = Files.lines(path);

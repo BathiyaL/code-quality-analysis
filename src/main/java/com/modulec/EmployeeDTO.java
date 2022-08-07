@@ -1,4 +1,4 @@
-package com.ModuleC;
+package com.modulec;
 
 public class EmployeeDTO {
 	private String name;
