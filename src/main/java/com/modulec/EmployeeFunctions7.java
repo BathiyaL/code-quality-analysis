@@ -1,5 +1,6 @@
 package com.modulec;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,6 +15,7 @@ import java.util.stream.Stream;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.util.FileUtils;
 
 public class EmployeeFunctions7 {
 
@@ -66,7 +68,7 @@ public class EmployeeFunctions7 {
 		Files.lines(path).forEach(logger::info); // Noncompliant: The stream needs to be closed
 	}
 
-	public void doSomething() {
+	public void doSomething() throws IOException {
 		String[] propertyList = { "A", "B" };
 		OutputStream stream = null;
 		try {
@@ -80,4 +82,19 @@ public class EmployeeFunctions7 {
 			stream.close(); // Multiple streams were opened. Only the last is closed.
 		}
 	}
+	
+	protected void pack() throws FileNotFoundException {
+		OutputStream zOut = null;
+		OutputStream stream = new FileOutputStream("myfile.txt");
+        try {
+            BufferedOutputStream bos =
+                new BufferedOutputStream(Files.newOutputStream(Paths.get(this.fileName)));
+            bos.write('B');
+            bos.write('Z');
+            zOut = new FileOutputStream("xyz.txxt");            
+        } catch (IOException ioe) {
+            String msg = "Problem creating bzip2 " + ioe.getMessage();
+            logger.warn(msg);
+        }
+    }
 }
