@@ -14,12 +14,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
-public class EmployeeFunctions5 {
+public class EmployeeFunctions6 {
 	
-	Logger logger = LogManager.getLogger(EmployeeFunctions5.class);
+	Logger logger = LogManager.getLogger(EmployeeFunctions6.class);
 	
 	String fileName;
-	EmployeeFunctions5(String fileName){
+	EmployeeFunctions6(String fileName){
 		this.fileName = fileName;
 	}
 	
@@ -29,9 +29,7 @@ public class EmployeeFunctions5 {
 		  try {
 		    for (String property : propertyList) {
 		      stream = new FileOutputStream("myfile.txt");
-		      if (stream!=null) {
-		    	  logger.info(stream.toString());
-		      }		      
+		      stream.wait();
 		      logger.info(property);
 		    }
 		  } catch (Exception e) {
