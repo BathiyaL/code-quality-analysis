@@ -54,7 +54,7 @@ public class EmployeeFunctions {
 		  try {
 		    for (String property : propertyList) {
 		      stream = new FileOutputStream("myfile.txt");
-		      // ...
+		      logger.info(property);
 		    }
 		  } catch (Exception e) {
 		    // ...
