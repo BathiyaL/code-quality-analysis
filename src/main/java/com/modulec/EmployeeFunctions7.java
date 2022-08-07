@@ -23,13 +23,13 @@ public class EmployeeFunctions7 {
 		this.fileName = fileName;
 	}
 
-	public void doSomething2() throws IOException {
+	public void doSomething2() throws IOException, InterruptedException {
 		OutputStream stream = new FileOutputStream("myfile.txt");
 		if (stream != null) {
 			try {
-				stream.close();
-			} catch (IOException e) {
-				logger.error("IOException");
+				stream.write(5);
+			} catch (Exception e) {
+				logger.error("Exception in stream");
 			}
 		}
 	}
