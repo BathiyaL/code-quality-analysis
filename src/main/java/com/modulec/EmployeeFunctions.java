@@ -23,6 +23,21 @@ public class EmployeeFunctions {
 		this.fileName = fileName;
 	}
 	
+	public void doSomething2() throws IOException {
+		  OutputStream stream = null;
+		  String[] propertyList = {"code", "code5"};
+		  try {
+		    for (String property : propertyList) {
+		      stream = new FileOutputStream("myfile.txt");
+		      logger.info(property);
+		    }
+		  } catch (Exception e) {
+		    // ...
+		  } finally {
+		    stream.close();
+		  }
+	}
+	
 	private void readTheEmployeeLog(){
 		Path path = Paths.get(this.fileName);
 		BufferedReader reader;
@@ -48,18 +63,5 @@ public class EmployeeFunctions {
 		readTheEmployeeLog();
 	}
 	
-	public void doSomething() throws IOException {
-		  OutputStream stream = null;
-		  String[] propertyList = {"code", "code5"};
-		  try {
-		    for (String property : propertyList) {
-		      stream = new FileOutputStream("myfile.txt");
-		      logger.info(property);
-		    }
-		  } catch (Exception e) {
-		    // ...
-		  } finally {
-		    stream.close();
-		  }
-	}
+
 }
