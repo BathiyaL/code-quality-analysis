@@ -21,20 +21,28 @@ public class EmployeeFunctions {
 		this.fileName = fileName;
 	}
 	
-	private void readTheEmployeeLog() throws IOException {
+	private void readTheEmployeeLog(){
 		Path path = Paths.get(this.fileName);
-		BufferedReader reader = Files.newBufferedReader(path);
-		logger.info(reader.read());
+		BufferedReader reader;
+		try {
+			reader = Files.newBufferedReader(path);
+			logger.info(reader.read());
+		} catch (IOException e1) {
+			logger.error("IOException");
+		}
+		
 		
 		try {
 			Stream<String> input = Files.lines(path);
 			input.forEach(logger::info);
 		}catch (FileNotFoundException e) {
 			logger.error("Invalid file name, check for the correct file ");
+		} catch (IOException e) {
+			logger.error("IOException");
 		}
 	}
 	
-	public void processEmployeeLogData() throws IOException {
+	public void processEmployeeLogData(){
 		readTheEmployeeLog();
 	}
 }
