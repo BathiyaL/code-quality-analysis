@@ -63,7 +63,7 @@ public class EmployeeFunctions7 {
 		// ...
 		reader.close(); // Noncompliant
 		// ...
-		Files.lines(path).forEach(System.out::println); // Noncompliant: The stream needs to be closed
+		Files.lines(path).forEach(logger::info); // Noncompliant: The stream needs to be closed
 	}
 
 	public void doSomething() {
@@ -72,7 +72,7 @@ public class EmployeeFunctions7 {
 		try {
 			for (String property : propertyList) {
 				stream = new FileOutputStream("myfile.txt"); // Noncompliant
-				// ...
+				logger.info(property);
 			}
 		} catch (Exception e) {
 			// ...
