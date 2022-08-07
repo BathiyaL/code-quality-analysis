@@ -23,7 +23,7 @@ public class EmployeeFunctions7 {
 		this.fileName = fileName;
 	}
 
-	public void doSomething2() throws IOException, InterruptedException {
+	public void doSomething2() throws IOException {
 		OutputStream stream = new FileOutputStream("myfile.txt");
 		if (stream != null) {
 			try {
