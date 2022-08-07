@@ -13,31 +13,28 @@ import java.util.stream.Stream;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+public class EmployeeFunctions7 {
 
-public class EmployeeFunctions6 {
-	
-	Logger logger = LogManager.getLogger(EmployeeFunctions6.class);
-	
+	Logger logger = LogManager.getLogger(EmployeeFunctions7.class);
+
 	String fileName;
-	EmployeeFunctions6(String fileName){
+
+	EmployeeFunctions7(String fileName) {
 		this.fileName = fileName;
 	}
-	
+
 	public void doSomething2() throws IOException {
-		  OutputStream stream = null;
-		  String[] propertyList = {"code", "code5"};
-		  try {
-		    for (String property : propertyList) {
-		      stream = new FileOutputStream("myfile.txt");
-		      stream.wait();
-		      logger.info(property);
-		    }
-		  } catch (Exception e) {
-		      logger.info(e);
-		  }
+		OutputStream stream = new FileOutputStream("myfile.txt");
+		if (stream != null) {
+			try {
+				stream.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
-	
-	private void readTheEmployeeLog(){
+
+	private void readTheEmployeeLog() {
 		Path path = Paths.get(this.fileName);
 		BufferedReader reader;
 		try {
@@ -46,21 +43,19 @@ public class EmployeeFunctions6 {
 		} catch (IOException e1) {
 			logger.error("IOException");
 		}
-		
-		
+
 		try {
 			Stream<String> input = Files.lines(path);
 			input.forEach(logger::info);
-		}catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) {
 			logger.error("Invalid file name, check for the correct file ");
 		} catch (IOException e) {
 			logger.error("IOException");
 		}
 	}
-	
-	public void processEmployeeLogData(){
+
+	public void processEmployeeLogData() {
 		readTheEmployeeLog();
 	}
-	
 
 }
