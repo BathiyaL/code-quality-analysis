@@ -25,9 +25,10 @@ public class EmployeeFunctions7 {
 
 	public void doSomething2() throws IOException {
 		OutputStream stream = new FileOutputStream("myfile.txt");
-
+		Path path = Paths.get(this.fileName);
 		try {
 			stream.write(5);
+			Files.lines(path).forEach(System.out::println);
 		} catch (Exception e) {
 			logger.error("Exception in stream");
 		}
