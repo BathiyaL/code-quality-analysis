@@ -25,13 +25,13 @@ public class EmployeeFunctions7 {
 
 	public void doSomething2() throws IOException {
 		OutputStream stream = new FileOutputStream("myfile.txt");
-		if (stream != null) {
-			try {
-				stream.write(5);
-			} catch (Exception e) {
-				logger.error("Exception in stream");
-			}
+
+		try {
+			stream.write(5);
+		} catch (Exception e) {
+			logger.error("Exception in stream");
 		}
+
 	}
 
 	private void readTheEmployeeLog() {
