@@ -4,7 +4,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -24,11 +26,11 @@ public class EmployeeFunctions7 {
 	}
 
 	public void doSomething2() throws IOException {
-		
+
 		String filePath = "myfile.txt";
 		File file = new File(filePath);
-	    FileInputStream fis = new FileInputStream(file);
-	    fis.read();
+		FileInputStream fis = new FileInputStream(file);
+		fis.read();
 	}
 
 	private void readTheEmployeeLog() {
@@ -55,4 +57,27 @@ public class EmployeeFunctions7 {
 		readTheEmployeeLog();
 	}
 
+	public void readTheFile() throws IOException {
+		Path path = Paths.get(this.fileName);
+		BufferedReader reader = Files.newBufferedReader(path);
+		// ...
+		reader.close(); // Noncompliant
+		// ...
+		Files.lines(path).forEach(System.out::println); // Noncompliant: The stream needs to be closed
+	}
+
+	public void doSomething() {
+		String[] propertyList = { "A", "B" };
+		OutputStream stream = null;
+		try {
+			for (String property : propertyList) {
+				stream = new FileOutputStream("myfile.txt"); // Noncompliant
+				// ...
+			}
+		} catch (Exception e) {
+			// ...
+		} finally {
+			stream.close(); // Multiple streams were opened. Only the last is closed.
+		}
+	}
 }
