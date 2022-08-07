@@ -8,7 +8,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+
 public class EmployeeFunctions {
+	
+	Logger logger = LogManager.getLogger(EmployeeFunctions.class);
+	
 	String fileName;
 	EmployeeFunctions(String fileName){
 		this.fileName = fileName;
@@ -17,14 +24,17 @@ public class EmployeeFunctions {
 	private void readTheEmployeeLog() throws IOException {
 		Path path = Paths.get(this.fileName);
 		BufferedReader reader = Files.newBufferedReader(path);
-		reader.close(); // Noncompliant
+		reader.close();
 		
 		try {
 			Stream<String> input = Files.lines(path);
-			input.forEach(System.out::println);
+			input.forEach(logger::info);
 		}catch (FileNotFoundException e) {
-			System.out.println("Invalid file name, check for the correct file ");
+			logger.error("Invalid file name, check for the correct file ");
 		}
-
+	}
+	
+	public void processEmployeeLogData() throws IOException {
+		readTheEmployeeLog();
 	}
 }
