@@ -9,6 +9,7 @@ gradle-app.setting
 !gradle-wrapper.jar
 
 **/target
+**/test-output
 *.project
 *.classpath
 *.settings
