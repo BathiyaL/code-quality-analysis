@@ -3,8 +3,11 @@
 <suite name="UnitTest-Regression" guice-stage="DEVELOPMENT">
   <test name="CoffeeMakerTest">
     <classes>
-      <class name="com.moduleA.coffeemaker.CoffeeMakerTest">
-      </class> 
+      <class name="com.moduleA.coffeemaker.RecipeBookTest"></class> 
+      <class name="com.moduleA.coffeemaker.RecipeTest"></class> 
+      <!-- <class name="com.moduleA.coffeemaker.CoffeeMakerTest"></class> -->
+      <!--<class name="com.moduleA.coffeemaker.CoffeeMakerPassTest"></class>  -->
+      <!-- <class name="com.moduled.CalculationTest"></class>  -->
     </classes>
   </test> 
 </suite>
